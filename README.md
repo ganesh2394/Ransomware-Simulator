@@ -1,58 +1,46 @@
-# Building a Ransomware Simulator
+# 🦠 Ransomware Simulator (Educational)
 
-## Table of Contents
-- [Project Overview](#project-overview)
-- [Objectives](#objectives)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Testing Results](#testing-results)
-- [Screenshots](#screenshots)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
+A **Java-based ransomware simulation framework** developed strictly for **educational, research, and defensive cybersecurity training**.  
+This project demonstrates how ransomware *operates internally*—including file selection, encryption simulation, key handling, and recovery—inside a **controlled, non-destructive environment**.
 
-## Project Overview
+---
 
-This project aims to create a ransomware simulator that mimics the behavior of real ransomware in a controlled environment. The simulator focuses on understanding ransomware attacks by simulating the encryption of files and displaying a ransom note to the user. 
+## ⚠️ DISCLAIMER
 
-### Objectives
-- **Understand Ransomware Behavior**: Gain insights into how ransomware operates through simulation.
-- **Demonstrate Risks**: Illustrate the potential risks associated with ransomware attacks and emphasize the importance of cybersecurity.
-- **Educate Users**: Raise awareness about ransomware and promote preventative strategies.
+🚨 **IMPORTANT NOTICE**
 
-## Features
-- **File System Interaction**: Simulates targeting specific files for encryption, mimicking real-world ransomware behavior.
-- **Encryption Module**: Implements AES (Advanced Encryption Standard) to securely encrypt files.
-- **Key Management**: Efficiently manages encryption keys required for the decryption process.
-- **User Interface (GUI)**: A simple and effective GUI displays a ransom note with recovery instructions.
-- **Testing and Results**: Comprehensive testing to verify the functionality of encryption/decryption processes and track indicators of compromise (IoCs).
+This project is created **ONLY for academic learning, cyber-defense research, and security awareness training**.
 
-## Technologies Used
-- **Programming Language**: Java
-- **Development Environment**: IntelliJ IDEA
-- **Virtualization**: Oracle VM VirtualBox
-- **GUI Framework**: Java Swing
-- **Encryption Algorithm**: AES (Advanced Encryption Standard)
+❌ It is **NOT** designed for real-world attacks  
+❌ It must **NOT** be deployed on production systems  
+❌ It must only be used on **test files with explicit permission**
 
-## Installation
+The author and contributors take **no responsibility** for misuse.
 
-To set up the ransomware simulator on your machine, follow these steps:
+---
 
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/ganesh2394/Ransomware-Simulator.git
+## 🎯 Project Objectives
 
-## Usage
+- Understand ransomware **workflow and lifecycle**
+- Learn **secure encryption concepts**
+- Simulate **incident response and recovery**
+- Practice **secure Java coding standards**
+- Apply **object-oriented and MVC principles**
 
-1. **Set Up a Virtual Machine**: 
-   Use Oracle VM VirtualBox to create a virtual environment where the simulator can operate safely.
+---
 
-2. **Run the Simulator**: 
-   Execute the application within your development environment (e.g., IntelliJ IDEA) to start the simulator.
+## ✨ Features
 
-3. **Follow GUI Instructions**: 
-   Interact with the GUI to select files for encryption. Observe how the ransom note is displayed after the selected files have been encrypted.
+✅ Directory-based file selection  
+✅ Safe encryption simulation (reversible)  
+✅ AES-based cryptography for learning  
+✅ Key generation and storage simulation  
+✅ Ransom note simulation (console/UI-based)  
+✅ Decryption & recovery flow  
+✅ Modular and extensible design
+
+---
+
 
 ## Testing Results
 
@@ -61,25 +49,101 @@ The simulator has undergone extensive testing to ensure the following:
 - **Proper functionality of the GUI**: The GUI displayed the ransom note as intended and allowed users to interact with the application.
 - **Tracking of indicators of compromise (IoCs)**: The application effectively tracked and displayed IoCs related to the simulated ransomware activity, demonstrating the potential impact of such attacks.
 
-## Screenshots
+---
 
-Here are some screenshots demonstrating the functionality of the ransomware simulator:
+## 🛠️ Technology Stack
 
-### File/Directory Choose
-![Main GUI](Screenshots/FileChoosenDirectory.png)
+- **Language:** Java (JDK 19+)
+- **IDE:** IntelliJ IDEA
+- **Database (Optional):** MySQL (simulation only)
+- **Crypto API:** `javax.crypto`
+- **Build Tool:** Standard Java Project
 
-### Operation : Encryption or Decryption
-![Ransom Note Display](Screenshots/OptionsforOperations.png)
+---
 
-### Ransomeware Note Example 
-![Encryption Process](Screenshots/RansomNote.png)
+## 📁 Project Structure
 
-*Ensure that the paths in the README correspond to where the screenshots are stored in your GitHub repository.*
+```commandline
+RansomwareSimulator/
+│
+├── src/
+│ └── ransomware/
+│ ├── Main.java
+│ ├── controller/
+│ │ └── SimulatorController.java
+│ ├── crypto/
+│ │ └── FileEncryptor.java
+│ ├── key/
+│ │ └── KeyStorage.java
+│ ├── ui/
+│ │ └── RansomNote.java
+│ └── util/
+│ └── FileSelector.java
+│
+├── screenshots/
+├── README.md
+├── .gitignore
+└── LICENSE
+```
 
-## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+---
 
-## Acknowledgments
+## ▶️ How It Works (Simulation Flow)
 
-- [Ganesh](https://github.com/yourusername) - Project Creator
+1. User selects a **test directory**
+2. System generates a **temporary encryption key**
+3. Files are **safely encrypted (educational mode)**
+4. A simulated ransom note is displayed
+5. Decryption is possible using the stored key
+
+---
+
+## 🔐 Security & Ethics
+
+- Encryption is **reversible**
+- Only selected extensions are processed
+- No system files are touched
+- Designed for **lab environments only**
+
+---
+
+## 📸 Screenshots
+
+| Directory Selection                       | Operations                                   | Ransom Note |
+|-------------------------------------------|----------------------------------------------|-------------|
+| ![](Screenshots/FileChoosenDirectory.png) | ![](Screenshots/OptionsforOperations.png) | ![](Screenshots/RansomNote.png) |
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome for:
+- Defensive improvements
+- Better UI
+- Logging & monitoring
+- Threat detection simulation
+
+---
+
+---
+## 🎓 Project Context and Affiliation
+
+This Ransomware Simulator project was developed as a technical contribution during an internship at **C-DAC (Centre for Development of Advanced Computing)**, under the umbrella of the **Cyber Gyan Project**.
+
+The development process strictly adhered to secure coding standards and cyber security best practices, guided by collaboration with senior developers and mentors within the project.
+
+---
+## 🙏 Acknowledgments
+
+This project was completed during an internship at **C-DAC** as part of the **Cyber Gyan Project**.
+
+I would like to acknowledge the senior developers and mentors for their guidance, ensuring the development process strictly adhered to:
+* Cyber security best practices
+* Secure coding standards
+
+
+## 📝 License
+
+MIT License  
+This project is open-source for **educational use only**.
